@@ -11,7 +11,6 @@ else
 {
     $prioriteit = 0;
 }
-$prioriteit = $_POST['prioriteit'];
 $capaciteit = $_POST['capaciteit']; 
 $melder = $_POST['melder'];
 
@@ -39,3 +38,5 @@ $statement->execute([
 ]);
 
 header("Location:../meldingen/index.php?msg=Meldingopgeslagen");
+
+?>
