@@ -37,6 +37,6 @@ $statement->execute([
     ":melder" => $melder,
 ]);
 
-header("Location:../meldingen/index.php?msg=Meldingopgeslagen");
+header("Location:../meldingen/index.php?msg=Melding opgeslagen");
 
 ?>

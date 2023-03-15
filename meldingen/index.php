@@ -19,9 +19,30 @@
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
-        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">(hier komen de storingsmeldingen)</div>
+        <?php   
+
+            require_once '../backend/conn.php';
+            $query = "SELECT * FROM meldingen";
+            $statement = $conn -> prepare($query);
+            $statement -> execute();
+            $meldingen = $statement -> fetchAll(PDO::FETCH_ASSOC);
+            foreach($meldingen as $melding)
+            {
+
+                echo "<p>" . $melding['attractie'] . ", " . "type: " .  $melding['type'] . ", " . "capaciteit = " . $melding['capaciteit'] . "</p>";
+                
+            }        
+        ?>
+
     </div>  
 
 </body>
 
 </html>
+
+<!--            echo "<p>" . $item['type'] . "</p>";
+                echo "<p>" . $item['capaciteit'] . "</p>";
+                echo "<p>" . $item['proriteit'] . "</p>";
+                echo "<p>" . $item['melder'] . "</p>";
+                echo "<p>" . $item['gemeld_op'] . "</p>";
+        -->
