@@ -25,24 +25,41 @@
             $query = "SELECT * FROM meldingen";
             $statement = $conn -> prepare($query);
             $statement -> execute();
-            $meldingen = $statement -> fetchAll(PDO::FETCH_ASSOC);
+            $meldingen = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach($meldingen as $melding)
-            {
-
-                echo "<p>" . $melding['attractie'] . ", " . "type: " .  $melding['type'] . ", " . "capaciteit = " . $melding['capaciteit'] . "</p>";
-                
-            }        
         ?>
 
+        <table>
+            <tr>    
+                <th>Attractie</th>
+                <th>prio-melding</th>
+                <th>Type</th>
+                <th>Melder</th> 
+                <th>capaciteit</th>
+                <th>gemeld op</th>
+            </tr>
+            <?php foreach($meldingen as $melding): ?>
+                <tr>    
+                    <td><?php echo $melding['attractie']; ?></td>
+                    
+                    <td><?php 
+                    if ($melding['prioriteit'] == 1){
+                        echo "ja";
+                    } else {
+                        echo "nee";
+                    };
+                    ?></td>
+
+                    <td><?php echo $melding['type']; ?></td>
+                    <td><?php echo $melding['melder']; ?></td>
+                    <td><?php echo $melding['capaciteit']; ?></td>
+                    <td><?php echo $melding['gemeld_op']; ?></td>
+
+                </tr>
+                <?php endforeach; ?>
+    </table>
     </div>  
 
 </body>
 
 </html>
-
-<!--            echo "<p>" . $item['type'] . "</p>";
-                echo "<p>" . $item['capaciteit'] . "</p>";
-                echo "<p>" . $item['proriteit'] . "</p>";
-                echo "<p>" . $item['melder'] . "</p>";
-                echo "<p>" . $item['gemeld_op'] . "</p>";
-        -->
