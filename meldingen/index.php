@@ -37,6 +37,8 @@
                 <th>Melder</th> 
                 <th>capaciteit</th>
                 <th>gemeld op</th>
+                <th>overige info</th>
+                <th>aanpasssen</th>
             </tr>
             <?php foreach($meldingen as $melding): ?>
                 <tr>    
@@ -54,7 +56,8 @@
                     <td><?php echo $melding['melder']; ?></td>
                     <td><?php echo $melding['capaciteit']; ?></td>
                     <td><?php echo $melding['gemeld_op']; ?></td>
-
+                    <td><?php echo $melding['overige_info']; ?></td>
+                    <td><a href="edit.php?id=<?php echo $melding['id']; ?>">aanpassen</a></td>
                 </tr>
                 <?php endforeach; ?>
     </table>
@@ -63,3 +66,4 @@
 </body>
 
 </html>
+
