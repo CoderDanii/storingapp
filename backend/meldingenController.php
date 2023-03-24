@@ -20,6 +20,7 @@ $overige_info = $_POST['overige_info'];
 
 
 
+
 //CREATE
 
 if ($action == "create")
@@ -56,7 +57,7 @@ if ($action == "create")
         ":prioriteit" => $prioriteit,
         ":capaciteit" => $capaciteit,
         ":melder" => $melder,
-        ":overige_info" => $overige_info
+        ":overige_info" => $overige_info,
     ]);
 
     header("Location:../meldingen/index.php?msg=Melding opgeslagen");
@@ -68,6 +69,7 @@ if ($action == "create")
 
 if ($action == "edit")
 {
+    $action = $_POST['action'];
     $capaciteit = $_POST['capaciteit'];
     if (isset($_POST['prioriteit']))
     {
@@ -92,7 +94,8 @@ if ($action == "edit")
         ":attractie" => $attractie,
         ":type" => $type,
         ":prioriteit" => $prioriteit,
-        ":overige_info" => $overige_info
+        ":overige_info" => $overige_info,
+        ":id" => $id
     ]);
 
     header("Location:../meldingen/index.php?msg=Melding opgeslagen");
