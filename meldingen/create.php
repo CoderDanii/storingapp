@@ -45,12 +45,12 @@
                     <input type="number" min="0" name="capaciteit" id="capaciteit" class="form-input">
                 </div>
                 <div class="form-group">
-                    <label for="overig">Naam melder:</label>
+                    <label for="melder">Naam melder:</label>
                     <input type="text" name="melder" id="melder" class="form-input">
                 </div> 
                 <div class="form-group">
                     <label for="melder">overige info:</label>
-                    <textarea name="overig" id="overig" class="form-input" rows="4"></textarea>
+                    <textarea name="overige_info" id="overige_info" class="form-input" rows="4"></textarea>
                 </div>
 
 

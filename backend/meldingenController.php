@@ -84,7 +84,7 @@ if ($action == "edit")
 
 
     require_once 'conn.php';
-    $query = "UPDATE meldingen SET capaciteit = :capaciteit, attractie = :attractie, type = :type, prioriteit = :prioriteit, melder = :melder, overige_info = :overige_info WHERE id = :id";
+    $query = "UPDATE meldingen SET capaciteit = :capaciteit, melder = :melder, attractie = :attractie, type = :type, prioriteit = :prioriteit, overige_info = :overige_info WHERE id = :id";
     $statement = $conn ->prepare($query);
     $statement -> execute([
         ":capaciteit" => $capaciteit,
@@ -92,7 +92,7 @@ if ($action == "edit")
         ":attractie" => $attractie,
         ":type" => $type,
         ":prioriteit" => $prioriteit,
-        ":overige_info" => $overige_info,
+        ":overige_info" => $overige_info
     ]);
 
     header("Location:../meldingen/index.php?msg=Melding opgeslagen");
