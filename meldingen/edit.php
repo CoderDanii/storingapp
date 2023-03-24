@@ -43,18 +43,20 @@
         $melding = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
 
-        <form action="........." method="POST">
+        <form action="../backend/meldingenController.php" method="POST">
             <!-- (voeg hier opdracht 7 toe) -->
             <input type="hidden" name="action" value="edit">
 
             <div class="form-group">
                 <label>Naam attractie:</label>
-                <?php echo $melding['attractie']; ?>
+                <input type="text" name="attractie" id="attractie" class="form-input"
+                    value="<?php echo $melding['attractie']; ?>">
             </div>
             <!-- Zorg dat het type wordt getoond, net als de naam hierboven -->
             <div class="form-group">
                 <label>type attractie:</label>
-                <?php echo $melding['type']; ?>
+                <input type="text" name="type" id="type" class="form-input"
+                    value="<?php echo $melding['type']; ?>">
             </div>
             <div class="form-group">
                 <label for="capaciteit">Capaciteit p/uur:</label>
@@ -75,7 +77,8 @@
             </div>
             <div class="form-group">
                 <label for="overig">Overige info:</label>
-                <textarea name="overig" id="overig" class="form-input" rows="4"><?php echo $melding['overige_info']; ?></textarea>
+                <textarea name="overig" id="overig" class="form-input" rows="4">
+                    <?php echo $melding['overige_info']; ?></textarea>
             </div>
             
             <input type="submit" value="Melding opslaan">
