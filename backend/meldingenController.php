@@ -25,20 +25,6 @@ $overige_info = $_POST['overige_info'];
 
 if ($action == "create")
 {
-    $action = $_POST['action'];
-    $attractie = $_POST['attractie'];
-    $type = $_POST['type'];
-    if(isset($_POST['prioriteit']))
-    {
-        $prioriteit = 1;
-    }
-    else
-    {
-        $prioriteit = 0;
-    }
-    $capaciteit = $_POST['capaciteit']; 
-    $melder = $_POST['melder'];
-    $overige_info = $_POST['overige_info'];
 
     //1. Verbinding
     require_once 'conn.php';
@@ -69,21 +55,6 @@ if ($action == "create")
 
 if ($action == "edit")
 {
-    $action = $_POST['action'];
-    $capaciteit = $_POST['capaciteit'];
-    if (isset($_POST['prioriteit']))
-    {
-        $prioriteit = 1;
-    }
-    else
-    {
-        $prioriteit = 0;
-    }
-    $attractie = $_POST['attractie'];
-    $type = $_POST['type'];
-    $melder = $_POST['melder'];
-    $overige_info = $_POST['overige_info'];
-
 
     require_once 'conn.php';
     $query = "UPDATE meldingen SET capaciteit = :capaciteit, melder = :melder, attractie = :attractie, type = :type, prioriteit = :prioriteit, overige_info = :overige_info WHERE id = :id";
