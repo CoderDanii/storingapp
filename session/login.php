@@ -20,6 +20,7 @@
             <input type="password" name="password" placeholder="pass">
             <input type="submit" value=" log in">
         </form>
+        <a href="../register.php">registreer</a>
     </div>
 </body>
 </html>

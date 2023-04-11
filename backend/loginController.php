@@ -23,7 +23,7 @@ if (!password_Verify($password, $user['password']))
 }
 
 $_SESSION['user_id'] = $user['id'];
-$_SESSION['user_name'] = $user['naam'];
+$_SESSION['user_name'] = $user['username'];
 
     header("location: ../index.php?");
 

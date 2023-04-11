@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    $msg = "Je moet eerst inloggen!";
+    header("location: ../session/login.php?msg=$msg");
+    exit;
+} ?>
+
+<?php
 
 // var_dump($_POST);
 // die;
