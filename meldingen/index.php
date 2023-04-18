@@ -22,13 +22,55 @@ if (!isset($_SESSION['user_id'])) {
         <h1>Meldingen</h1>
         <a href="create.php">Nieuwe melding &gt;</a>
 
+        <!-- filteren attractie        -->
+        <form action="" method="GET">
+            <select name="type">
+                <option value=""> - Kies soort om te filteren - </option>
+                <option value="Achtbaan">Achtbaan</option>
+                <option value="Water">Water</option>
+                <option value="Darkride">Darkride</option>
+                <option value="Draaiend">Draaiend</option>
+                <option value="Kinder">Kinder/option>
+                <option value="Horeca">Horeca</option>
+                <option value="Show">Show</option>
+                <option value="Overig">Overig</option>
+            </select>
+            <input type="submit" value="filter">
+        </form>
+        <?php  
+
+            require_once '../backend/conn.php';
+            if (empty($_GET['']))
+            {
+
+                $query = "SELECT * FROM meldingen WHERE id = :user_id ORDER BY date DESC";
+                $statement = $conn->prepare($query);
+                $statement->execute([
+                    ":user_id" => $_SESSION['user_id']
+                ]);
+            }
+            else
+            {
+                $query = "SELECT * FROM meldingen WHERE id = :user_id AND AttractieSoort = :type ORDER BY date DESC";
+                $statement = $conn->prepare($query);
+                $statement->execute([
+                    "user_id" => $_SESSION['user_id'],
+                    ":type" => $_GET['type']
+                ]);
+            }
+            $melding = $statement->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
+
+
+
+
         <?php if(isset($_GET['msg']))
         {
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
         <?php   
-
             require_once '../backend/conn.php';
             $query = "SELECT * FROM meldingen";
             $statement = $conn -> prepare($query);
