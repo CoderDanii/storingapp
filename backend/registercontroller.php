@@ -34,7 +34,6 @@ $hash = $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $query = "INSERT INTO users (username, password) VALUES (:username, :hash)";
 $statement = $conn ->prepare($query);
 $statement -> execute([
-
     ":username" => $username,
     ":hash" => $hash
 ]);

@@ -2,7 +2,7 @@
 <html lang="nl">
 
 <head>
-    <title>takentool registreren</title>
+    <title>registreren</title>
     <?php require_once 'head.php'; ?>
 </head>
 
@@ -11,7 +11,7 @@
     <div class="container-home">
         <form action="backend/registerController.php" method="POST">
             <input type="text" name="username" placeholder="username">
-            <input type="password" name="password" placeholder="pass">
+            <input type="password" name="password" placeholder="password">
             <input type="password" name="password_check" placeholder="password_check">
             <input type="submit" value="register">
         </form>
