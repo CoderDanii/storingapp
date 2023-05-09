@@ -19,7 +19,7 @@ require_once 'conn.php';
 $query = "SELECT * FROM users WHERE username = :username";
 $statement = $conn->prepare($query);
 $statement->execute([":username" => $username]);
-$username = $statement -> fetch(PDO::FETCH_ASSOC);
+// $username = $statement -> fetch(PDO::FETCH_ASSOC);
 if ($statement->rowCount() > 0)
 {
     die;
@@ -29,7 +29,7 @@ if (empty($password))
 {
     die("wachtwoord mag niet leeg zijn");
 }
-$hash = $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
 $query = "INSERT INTO users (username, password) VALUES (:username, :hash)";
 $statement = $conn ->prepare($query);

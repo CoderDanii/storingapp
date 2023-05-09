@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    $msg = "Je moet eerst inloggen!";
+    header("location: session/login.php?msg=$msg");
+    exit;
+} ?>
 
 <!doctype html>
 <html lang="nl">
@@ -10,7 +17,7 @@
 <body>
 
     <?php require_once 'header.php'; ?>
-    
+
     <div class="container home">
 
         <h1>Welkom bij de technische dienst</h1>
